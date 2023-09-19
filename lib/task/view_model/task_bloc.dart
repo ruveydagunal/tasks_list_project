@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,10 +9,9 @@ class TaskBloc extends Bloc<TaskEvent, TaskState>{
     on<AddTaskEvent>(_onAddTask);
     on<ClearTaskEvent>(onClearTask);
     on<CompleteTaskEvent>(_onCompleteTask);
+    on<EditTaskEvent>(_onEditTask);
   }
     
-
-
   FutureOr<void> _onAddTask(AddTaskEvent event, Emitter<TaskState> emit) {
     final updatedTasks = List.from(state.tasks)..add(event.task);
     emit(TaskInitalState(updatedTasks));
@@ -27,5 +24,9 @@ class TaskBloc extends Bloc<TaskEvent, TaskState>{
   FutureOr<void> _onCompleteTask(CompleteTaskEvent event, Emitter<TaskState> emit) {
     final updatedTasks = List.from(state.tasks)..removeAt(event.index);
     emit(TaskInitalState(updatedTasks));
+  }
+
+  FutureOr<void> _onEditTask(EditTaskEvent event, Emitter<TaskState> emit) {
+    
   }
 }

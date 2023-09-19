@@ -51,6 +51,9 @@ class TaskView extends StatelessWidget {
                       title: Text(state.tasks[index]),
                       trailing: IconButton(onPressed: (){
                         context.read<TaskBloc>().add(CompleteTaskEvent(index));
+                      } ,icon: Icon(Icons.edit)),
+                      leading: IconButton(onPressed: (){
+                        context.read<TaskBloc>().add(CompleteTaskEvent(index));
                       } ,icon: Icon(Icons.done)),
                     );
                   }))

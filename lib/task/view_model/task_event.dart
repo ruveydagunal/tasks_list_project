@@ -13,3 +13,7 @@ class CompleteTaskEvent extends TaskEvent{
 
   CompleteTaskEvent(this.index);
 }
+
+class EditTaskEvent extends TaskEvent{
+  
+}
